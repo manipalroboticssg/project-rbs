@@ -6,6 +6,7 @@ on:
     types: [opened]
 jobs:
   auto-assigner:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Auto assign issues/PRs
