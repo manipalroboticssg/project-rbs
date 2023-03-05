@@ -1,0 +1,31 @@
+name: Issue/PR Workflow
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+jobs:
+  auto-assigner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto assign issues/PRs
+        uses: wow-actions/auto-assign@v3.0.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          reviewers: CH13F-1419
+          assignees: CH13F-1419
+  linter-formatter:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    if: github.event_name = "pull_request"
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3.3.0
+        with:
+          fetch-depth: 0
+      - name: Run GitHub Super-Linter
+        uses: github/super-linter@v4.10.1
+        with:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
