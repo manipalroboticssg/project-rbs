@@ -1,5 +1,8 @@
 """Solves a Rubik's Cube"""
 import numpy as np
+import serial
+
+# import cv2 as cv
 
 # Numbering Convention
 # white   =  0
@@ -22,6 +25,7 @@ cube = np.array(
 )
 final_moves = []
 STEPCOUNT = 0
+SERIAL_PORT = "/dev/ttyACM1"
 
 
 def prnt():
@@ -52,36 +56,6 @@ def anticlockwise(face):
 
 # Below functions are called when the solving algorithm to turn the cubes,
 # it updates the configuration of the cube array according to real world cube.
-
-
-def whiteclk():
-    """White face is to be rotated ClockWise"""
-    print("")
-    cube[2][0], cube[4][0], cube[3][0], cube[5][0] = (
-        cube[4][0].copy(),
-        cube[3][0].copy(),
-        cube[5][0].copy(),
-        cube[2][0].copy(),
-    )
-    cube[0] = clockwise(cube[0].copy())
-    final_moves.append(0)
-    print("White Clockwise -")
-    prnt()
-
-
-def white_aclk():
-    """White face is to be rotated AntiClockWise"""
-    print("")
-    cube[2][0], cube[4][0], cube[3][0], cube[5][0] = (
-        cube[5][0].copy(),
-        cube[2][0].copy(),
-        cube[4][0].copy(),
-        cube[3][0].copy(),
-    )
-    cube[0] = anticlockwise(cube[0].copy())
-    final_moves.append(10)
-    print("White Anticlockwise -")
-    prnt()
 
 
 def yellowclk():
@@ -476,6 +450,7 @@ def ycross():
 if __name__ == "__main__":
     ip = []
     STEPCOUNT = 1  # Counts the number of steps taken the solve the cube
+    arduino = serial.Serial(SERIAL_PORT, 115200)
     colour = ["white", "yellow", "red", "orange", "blue", "green"]
     for i in range(0, 6):
         print("Input", colour[i], "face  ", end="")
@@ -499,12 +474,24 @@ if __name__ == "__main__":
         ## white piece ##
         # white  face
         if cube[0][0][1] == 0 and cube[3][0][1] == 2:
-            whiteclk()
-            whiteclk()
+            orangeclk()
+            orangeclk()
+            yellowclk()
+            yellowclk()
+            redclk()
+            redclk()
         elif cube[0][1][2] == 0 and cube[4][0][1] == 2:
-            whiteclk()
+            blueclk()
+            blueclk()
+            yellow_aclk()
+            redclk()
+            redclk()
         elif cube[0][1][0] == 0 and cube[5][0][1] == 2:
-            white_aclk()
+            greenclk()
+            greenclk()
+            yellowclk()
+            redclk()
+            redclk()
 
         # red    face
         if (cube[2][2][1] == 0 and cube[1][2][1] == 2) or (
@@ -514,7 +501,7 @@ if __name__ == "__main__":
         if cube[2][1][0] == 0 and cube[5][1][2] == 2:
             greenclk()
             yellowclk()
-            # greenAclk()
+            # green_aclk()
         elif cube[2][1][2] == 0 and cube[4][1][0] == 2:
             blue_aclk()
             yellow_aclk()
@@ -528,7 +515,7 @@ if __name__ == "__main__":
         if cube[3][1][0] == 0 and cube[4][1][2] == 2:
             blueclk()
             yellow_aclk()
-            # blueAclk()
+            # blue_aclk()
         elif cube[3][1][2] == 0 and cube[5][1][0] == 2:
             green_aclk()
             yellowclk()
@@ -580,12 +567,12 @@ if __name__ == "__main__":
             redclk()
             greenclk()
             yellow_aclk()
-            # greenAclk()
+            # green_aclk()
             red_aclk()
         elif cube[2][1][0] == 0 and cube[5][1][2] == 3:
             greenclk()
             yellow_aclk()
-            # greenAclk()
+            # green_aclk()
         elif cube[2][1][2] == 0 and cube[4][1][0] == 3:
             blue_aclk()
             yellowclk()
@@ -599,7 +586,7 @@ if __name__ == "__main__":
         if cube[3][1][0] == 0 and cube[4][1][2] == 3:
             blueclk()
             yellowclk()
-        # blueAclk()
+        # blue_aclk()
         elif cube[3][1][2] == 0 and cube[5][1][0] == 3:
             green_aclk()
             yellow_aclk()
@@ -1731,7 +1718,7 @@ if __name__ == "__main__":
                 orangeclk()
             print("Blue red green is aligned")
 
-    print(final_moves)
+    print("Final Moves - ", final_moves)
 
     ##Optimisation of moves##
     ofinal_moves = final_moves.copy()
@@ -1764,7 +1751,36 @@ if __name__ == "__main__":
         ofinal_moves = fm.copy()
         if C == 0:
             break
-
+    MOVE_STRING = "S"
+    i = 0
+    while i < len(ofinal_moves):
+        if i != len(ofinal_moves) - 1:
+            if (
+                (ofinal_moves[i] == 3 and ofinal_moves[i + 1] == 2)
+                or (ofinal_moves[i] == 2 and ofinal_moves[i + 1] == 3)
+                or (ofinal_moves[i] == 13 and ofinal_moves[i + 1] == 12)
+                or (ofinal_moves[i] == 12 and ofinal_moves[i + 1] == 13)
+                or (ofinal_moves[i] == 5 and ofinal_moves[i + 1] == 4)
+                or (ofinal_moves[i] == 4 and ofinal_moves[i + 1] == 5)
+                or (ofinal_moves[i] == 15 and ofinal_moves[i + 1] == 14)
+                or (ofinal_moves[i] == 14 and ofinal_moves[i + 1] == 15)
+            ):
+                MOVE_STRING += "T"
+            if ofinal_moves[i] == ofinal_moves[i + 1]:
+                if ofinal_moves[i] >= 1 and ofinal_moves[i] <= 5:
+                    MOVE_STRING += "E" + str(ofinal_moves[i])
+                if ofinal_moves[i] >= 11 and ofinal_moves[i] <= 15:
+                    MOVE_STRING += "D" + str(ofinal_moves[i] - 10)
+                i += 2
+        if ofinal_moves[i] >= 1 and ofinal_moves[i] <= 5:
+            MOVE_STRING += "C" + str(ofinal_moves[i])
+        if ofinal_moves[i] >= 11 and ofinal_moves[i] <= 15:
+            MOVE_STRING += "A" + str(ofinal_moves[i] - 10)
+        i += 1
+    MOVE_STRING += "E"
+    arduino.write(MOVE_STRING.encode())
+    arduino.close()
+    print("Move String = ", MOVE_STRING)
     print("Optimised Moves -")
     for i, ele in enumerate(ofinal_moves):
         B = str(ele)
