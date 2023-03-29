@@ -1,5 +1,6 @@
 """Solves a Rubik's Cube"""
 import numpy as np
+
 # Numbering Convention
 # white   =  0
 # yellow  =  1
@@ -68,7 +69,7 @@ def whiteclk():
     prnt()
 
 
-def whiteAclk():
+def white_aclk():
     """White face is to be rotated AntiClockWise"""
     print("")
     cube[2][0], cube[4][0], cube[3][0], cube[5][0] = (
@@ -98,7 +99,7 @@ def yellowclk():
     prnt()
 
 
-def yellowAclk():
+def yellow_aclk():
     """Yellow face is to be rotated AntiClockWise"""
     print("")
     cube[2][2], cube[4][2], cube[3][2], cube[5][2] = (
@@ -140,7 +141,7 @@ def redclk():
     prnt()
 
 
-def redAclk():
+def red_aclk():
     """Red face is to be rotated AntiClockWise"""
     print("")
     cube[0][2][0], cube[4][0][0], cube[1][2][0], cube[5][2][2] = (
@@ -194,7 +195,7 @@ def orangeclk():
     prnt()
 
 
-def orangeAclk():
+def orange_aclk():
     """Orange face is to be rotated AntiClockWise"""
     print("")
     cube[0][0][0], cube[4][0][2], cube[1][0][0], cube[5][2][0] = (
@@ -248,7 +249,7 @@ def blueclk():
     prnt()
 
 
-def blueAclk():
+def blue_aclk():
     """Blue face is to be rotated AntiClockWise"""
     print("")
     cube[0][0][2], cube[2][0][2], cube[1][2][0], cube[3][2][0] = (
@@ -302,7 +303,7 @@ def greenclk():
     prnt()
 
 
-def greenAclk():
+def green_aclk():
     """Green face is to be rotated AntiClockWise"""
     print("")
     cube[0][0][0], cube[2][0][0], cube[1][2][2], cube[3][2][2] = (
@@ -334,55 +335,55 @@ def greenAclk():
 
 def redr():
     """When middle corner piece is to be insert to middle right ccorner of red face"""
-    blueAclk()
+    blue_aclk()
     yellowclk()
     blueclk()
     yellowclk()
     redclk()
-    yellowAclk()
-    redAclk()
+    yellow_aclk()
+    red_aclk()
 
 
 def oranger():
     """When middle corner piece is to be insert to middle right ccorner of orange face"""
-    greenAclk()
+    green_aclk()
     yellowclk()
     greenclk()
     yellowclk()
     orangeclk()
-    yellowAclk()
-    orangeAclk()
+    yellow_aclk()
+    orange_aclk()
 
 
 def bluer():
     """When middle corner piece is to be insert to middle right ccorner of blue face"""
-    orangeAclk()
+    orange_aclk()
     yellowclk()
     orangeclk()
     yellowclk()
     blueclk()
-    yellowAclk()
-    blueAclk()
+    yellow_aclk()
+    blue_aclk()
 
 
 def greenr():
     """When middle corner piece is to be insert to middle right corner of green face"""
-    redAclk()
+    red_aclk()
     yellowclk()
     redclk()
     yellowclk()
     greenclk()
-    yellowAclk()
-    greenAclk()
+    yellow_aclk()
+    green_aclk()
 
 
 def redl():
     """When middle corner piece is to be insert to middle left corner of red face"""
     greenclk()
-    yellowAclk()
-    greenAclk()
-    yellowAclk()
-    redAclk()
+    yellow_aclk()
+    green_aclk()
+    yellow_aclk()
+    red_aclk()
     yellowclk()
     redclk()
 
@@ -390,10 +391,10 @@ def redl():
 def orangel():
     """When middle corner piece is to be insert to middle left corner of orange face"""
     blueclk()
-    yellowAclk()
-    blueAclk()
-    yellowAclk()
-    orangeAclk()
+    yellow_aclk()
+    blue_aclk()
+    yellow_aclk()
+    orange_aclk()
     yellowclk()
     orangeclk()
 
@@ -401,10 +402,10 @@ def orangel():
 def bluel():
     """When middle corner piece is to be insert to middle left corner of blue face"""
     redclk()
-    yellowAclk()
-    redAclk()
-    yellowAclk()
-    blueAclk()
+    yellow_aclk()
+    red_aclk()
+    yellow_aclk()
+    blue_aclk()
     yellowclk()
     blueclk()
 
@@ -412,10 +413,10 @@ def bluel():
 def greenl():
     """When middle corner piece is to be insert to middle left corner of green face"""
     orangeclk()
-    yellowAclk()
-    orangeAclk()
-    yellowAclk()
-    greenAclk()
+    yellow_aclk()
+    orange_aclk()
+    yellow_aclk()
+    green_aclk()
     yellowclk()
     greenclk()
 
@@ -428,38 +429,38 @@ def camscan():
     the configuration of the whole cube"""
     # Initial scan +8 (White all)
     blueclk()  # +3 (red[3], red[6], red[9])
-    greenAclk()  # +3 (red[1], red[4], red[7])
+    green_aclk()  # +3 (red[1], red[4], red[7])
     blueclk()  # +3 (yellow[3], yellow[6], yellow[9])
-    greenAclk()  # +3 (yellow[1], yellow[4], yellow[7])
+    green_aclk()  # +3 (yellow[1], yellow[4], yellow[7])
     blueclk()  # +3 (orange[1], orange[3], orange[7])
-    greenAclk()  # +3 (orange[3], orange[6], orange[9])
+    green_aclk()  # +3 (orange[3], orange[6], orange[9])
     redclk()  # +1 (green[2])
-    orangeAclk()  # +1 (green[8])
-    redAclk()  # +0
+    orange_aclk()  # +1 (green[8])
+    red_aclk()  # +0
     orangeclk()  # +0
-    redAclk()  # +1 (blue[2])
+    red_aclk()  # +1 (blue[2])
     orangeclk()  # +1 (blue[8])
     redclk()  # +0
-    orangeAclk()  # +0
+    orange_aclk()  # +0
     blueclk()  # +0
-    greenAclk()  # +0
+    green_aclk()  # +0
 
     redclk()  # +3 (green[3], green[6], green[9])
-    orangeAclk()  # +3 (green[1], green[4], green[7])
+    orange_aclk()  # +3 (green[1], green[4], green[7])
     redclk()  # +1 (yellow[8])
-    orangeAclk()  # +1 (yellow[2])
+    orange_aclk()  # +1 (yellow[2])
     redclk()  # +3 (blue[1], blue[3], blue[7])
-    orangeAclk()  # +3 (blue[3], blue[6], blue[9])
+    orange_aclk()  # +3 (blue[3], blue[6], blue[9])
     blueclk()  # +1 (red[8])
-    greenAclk()  # +1 (red[2])
-    blueAclk()  # +0
+    green_aclk()  # +1 (red[2])
+    blue_aclk()  # +0
     greenclk()  # +0
-    blueAclk()  # +1 (orange[8])
+    blue_aclk()  # +1 (orange[8])
     greenclk()  # +1 (orange[2])
     blueclk()  # +0
-    greenAclk()  # +0
+    green_aclk()  # +0
     redclk()  # +0
-    orangeAclk()  # +0
+    orange_aclk()  # +0
 
 
 def ycross():
@@ -480,12 +481,12 @@ if __name__ == "__main__":
         print("Input", colour[i], "face  ", end="")
         inp = input()
         inparr = []
-        cnt = 0
+        COUNT = 0
         for j in range(0, 3):
             inparr0 = []
             for k in range(0, 3):
-                inparr0.append(int(inp[cnt]))
-                cnt += 1
+                inparr0.append(int(inp[COUNT]))
+                COUNT += 1
             inparr.append(inparr0)
         ip.append(inparr)
     cube = np.array(ip)
@@ -503,7 +504,7 @@ if __name__ == "__main__":
         elif cube[0][1][2] == 0 and cube[4][0][1] == 2:
             whiteclk()
         elif cube[0][1][0] == 0 and cube[5][0][1] == 2:
-            whiteAclk()
+            white_aclk()
 
         # red    face
         if (cube[2][2][1] == 0 and cube[1][2][1] == 2) or (
@@ -515,8 +516,8 @@ if __name__ == "__main__":
             yellowclk()
             # greenAclk()
         elif cube[2][1][2] == 0 and cube[4][1][0] == 2:
-            blueAclk()
-            yellowAclk()
+            blue_aclk()
+            yellow_aclk()
             # blueclk()
 
         # orange face
@@ -526,10 +527,10 @@ if __name__ == "__main__":
             orangeclk()
         if cube[3][1][0] == 0 and cube[4][1][2] == 2:
             blueclk()
-            yellowAclk()
+            yellow_aclk()
             # blueAclk()
         elif cube[3][1][2] == 0 and cube[5][1][0] == 2:
-            greenAclk()
+            green_aclk()
             yellowclk()
             # greenclk()
         # blue   face
@@ -537,11 +538,11 @@ if __name__ == "__main__":
             blueclk()
             blueclk()
         elif cube[4][0][1] == 0 and cube[0][1][2] == 2:
-            blueAclk()
+            blue_aclk()
         elif cube[4][2][1] == 0 and cube[1][1][0] == 2:
             blueclk()
         if cube[4][1][0] == 0 and cube[2][1][2] == 2:
-            redAclk()
+            red_aclk()
         # green  face
         if cube[5][1][0] == 0 and cube[3][1][2] == 2:
             greenclk()
@@ -549,7 +550,7 @@ if __name__ == "__main__":
         elif cube[5][0][1] == 0 and cube[0][1][0] == 2:
             greenclk()
         elif cube[5][2][1] == 0 and cube[1][1][2] == 2:
-            greenAclk()
+            green_aclk()
         if cube[5][1][2] == 0 and cube[2][1][0] == 2:
             redclk()
         # yellow face
@@ -559,7 +560,7 @@ if __name__ == "__main__":
         elif cube[5][2][1] == 2 and cube[1][1][2] == 0:
             yellowclk()
         elif cube[4][2][1] == 2 and cube[1][1][0] == 0:
-            yellowAclk()
+            yellow_aclk()
         if cube[2][2][1] == 2 and cube[1][2][1] == 0:
             redclk()
             redclk()
@@ -578,15 +579,15 @@ if __name__ == "__main__":
         if cube[2][2][1] == 0 and cube[1][2][1] == 3:
             redclk()
             greenclk()
-            yellowAclk()
+            yellow_aclk()
             # greenAclk()
-            redAclk()
+            red_aclk()
         elif cube[2][1][0] == 0 and cube[5][1][2] == 3:
             greenclk()
-            yellowAclk()
+            yellow_aclk()
             # greenAclk()
         elif cube[2][1][2] == 0 and cube[4][1][0] == 3:
-            blueAclk()
+            blue_aclk()
             yellowclk()
             # blueclk()
 
@@ -600,8 +601,8 @@ if __name__ == "__main__":
             yellowclk()
         # blueAclk()
         elif cube[3][1][2] == 0 and cube[5][1][0] == 3:
-            greenAclk()
-            yellowAclk()
+            green_aclk()
+            yellow_aclk()
             # greenclk()
         # blue   face
         if cube[4][1][0] == 0 and cube[2][1][2] == 3:
@@ -610,7 +611,7 @@ if __name__ == "__main__":
         elif cube[4][0][1] == 0 and cube[0][1][2] == 3:
             blueclk()
         elif cube[4][2][1] == 0 and cube[1][1][0] == 3:
-            blueAclk()
+            blue_aclk()
         if cube[4][1][2] == 0 and cube[3][1][0] == 3:
             orangeclk()
         # green  face
@@ -618,17 +619,17 @@ if __name__ == "__main__":
             greenclk()
             greenclk()
         elif cube[5][0][1] == 0 and cube[0][1][0] == 3:
-            greenAclk()
+            green_aclk()
         elif cube[5][2][1] == 0 and cube[1][1][2] == 3:
             greenclk()
         if cube[5][1][0] == 0 and cube[3][1][2] == 3:
-            orangeAclk()
+            orange_aclk()
         # yellow face
         if cube[2][2][1] == 3 and cube[1][2][1] == 0:
             yellowclk()
             yellowclk()
         elif cube[5][2][1] == 3 and cube[1][1][2] == 0:
-            yellowAclk()
+            yellow_aclk()
         elif cube[4][2][1] == 3 and cube[1][1][0] == 0:
             yellowclk()
         if cube[3][2][1] == 3 and cube[1][0][1] == 0:
@@ -649,7 +650,7 @@ if __name__ == "__main__":
             redclk()
             redclk()
         elif cube[2][2][1] == 0 and cube[1][2][1] == 4:
-            redAclk()
+            red_aclk()
             blueclk()
             redclk()
         elif cube[2][1][2] == 0 and cube[4][1][0] == 4:
@@ -658,13 +659,13 @@ if __name__ == "__main__":
         if cube[3][1][2] == 0 and cube[5][1][0] == 4:
             orangeclk()
             orangeclk()
-            blueAclk()
+            blue_aclk()
             orangeclk()
             orangeclk()
         elif cube[3][2][1] == 0 and cube[1][0][1] == 4:
             orangeclk()
-            blueAclk()
-            orangeAclk()
+            blue_aclk()
+            orange_aclk()
         elif cube[3][1][0] == 0 and cube[4][1][2] == 4:
             blueclk()
         # blue   face
@@ -675,10 +676,10 @@ if __name__ == "__main__":
         if cube[4][1][0] == 0 and cube[2][1][2] == 4:
             redclk()
             yellowclk()
-            redAclk()
+            red_aclk()
         elif cube[4][1][2] == 0 and cube[3][1][0] == 4:
-            orangeAclk()
-            yellowAclk()
+            orange_aclk()
+            yellow_aclk()
             orangeclk()
         # green  face
         if (cube[5][2][1] == 0 and cube[1][1][2] == 4) or (
@@ -687,10 +688,10 @@ if __name__ == "__main__":
             greenclk()
         if cube[5][1][0] == 0 and cube[3][1][2] == 4:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         elif cube[5][1][2] == 0 and cube[2][1][0] == 4:
-            redAclk()
+            red_aclk()
             yellowclk()
             redclk()
         # yellow face
@@ -698,7 +699,7 @@ if __name__ == "__main__":
             yellowclk()
             yellowclk()
         elif cube[3][2][1] == 4 and cube[1][0][1] == 0:
-            yellowAclk()
+            yellow_aclk()
         elif cube[2][2][1] == 4 and cube[1][2][1] == 0:
             yellowclk()
         if cube[4][2][1] == 4 and cube[1][1][0] == 0:
@@ -711,15 +712,15 @@ if __name__ == "__main__":
         if cube[2][1][2] == 0 and cube[4][1][0] == 5:
             redclk()
             redclk()
-            greenAclk()
+            green_aclk()
             redclk()
             redclk()
         elif cube[2][2][1] == 0 and cube[1][2][1] == 5:
             redclk()
-            greenAclk()
-            redAclk()
+            green_aclk()
+            red_aclk()
         elif cube[2][1][0] == 0 and cube[5][1][2] == 5:
-            greenAclk()
+            green_aclk()
         # orange face
         if cube[3][1][0] == 0 and cube[4][1][2] == 5:
             orangeclk()
@@ -728,7 +729,7 @@ if __name__ == "__main__":
             orangeclk()
             orangeclk()
         elif cube[3][2][1] == 0 and cube[1][0][1] == 5:
-            orangeAclk()
+            orange_aclk()
             greenclk()
             orangeclk()
         elif cube[3][1][2] == 0 and cube[5][1][0] == 5:
@@ -737,15 +738,15 @@ if __name__ == "__main__":
         if cube[4][2][1] == 0 and cube[1][1][0] == 5:
             blueclk()
             redclk()
-            yellowAclk()
-            redAclk()
-            blueAclk()
+            yellow_aclk()
+            red_aclk()
+            blue_aclk()
         elif cube[4][1][0] == 0 and cube[2][1][2] == 5:
             redclk()
-            yellowAclk()
-            redAclk()
+            yellow_aclk()
+            red_aclk()
         elif cube[4][1][2] == 0 and cube[3][1][0] == 5:
-            orangeAclk()
+            orange_aclk()
             yellowclk()
             orangeclk()
         # green  face
@@ -756,17 +757,17 @@ if __name__ == "__main__":
         if cube[5][1][0] == 0 and cube[3][1][2] == 5:
             orangeclk()
             yellowclk()
-            orangeAclk()
+            orange_aclk()
         elif cube[5][1][2] == 0 and cube[2][1][0] == 5:
-            redAclk()
-            yellowAclk()
+            red_aclk()
+            yellow_aclk()
             redclk()
         # yellow face
         if cube[4][2][1] == 5 and cube[1][1][0] == 0:
             yellowclk()
             yellowclk()
         elif cube[2][2][1] == 5 and cube[1][2][1] == 0:
-            yellowAclk()
+            yellow_aclk()
         elif cube[3][2][1] == 5 and cube[1][0][1] == 0:
             yellowclk()
         if cube[5][2][1] == 5 and cube[1][1][2] == 0:
@@ -784,56 +785,56 @@ if __name__ == "__main__":
 
         # White face
         if cube[0][0][2] == 0 and cube[3][0][0] == 4 and cube[4][0][2] == 2:
-            orangeAclk()
+            orange_aclk()
             yellowclk()
             orangeclk()
         elif cube[0][0][0] == 0 and cube[5][0][0] == 4 and cube[3][0][2] == 2:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         elif cube[0][2][0] == 0 and cube[2][0][0] == 4 and cube[5][0][2] == 2:
             greenclk()
             yellowclk()
-            greenAclk()
+            green_aclk()
         # Red face
         if cube[0][2][0] == 2 and cube[2][0][0] == 0 and cube[5][0][2] == 4:
-            redAclk()
-            yellowAclk()
+            red_aclk()
+            yellow_aclk()
             redclk()
         elif cube[0][2][2] == 4 and cube[2][0][2] == 0 and cube[4][0][0] == 2:
-            blueAclk()
+            blue_aclk()
             yellowclk()
             blueclk()
         # Blue  face
         if cube[0][2][2] == 2 and cube[2][0][2] == 4 and cube[4][0][0] == 0:
             redclk()
-            yellowAclk()
-            redAclk()
+            yellow_aclk()
+            red_aclk()
         elif cube[0][0][2] == 4 and cube[4][0][2] == 0 and cube[3][0][0] == 2:
             blueclk()
             yellowclk()
-            blueAclk()
+            blue_aclk()
         # Orange face
         if cube[0][0][0] == 4 and cube[3][0][2] == 0 and cube[5][0][0] == 2:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         elif cube[0][0][2] == 2 and cube[4][0][2] == 4 and cube[3][0][0] == 0:
             blueclk()
-            yellowAclk()
-            blueAclk()
+            yellow_aclk()
+            blue_aclk()
         # Green face
         if cube[0][0][0] == 2 and cube[3][0][2] == 4 and cube[5][0][0] == 0:
-            greenAclk()
-            yellowAclk()
+            green_aclk()
+            yellow_aclk()
             greenclk()
         elif cube[0][2][0] == 4 and cube[5][0][2] == 0 and cube[2][0][0] == 2:
-            redAclk()
+            red_aclk()
             yellowclk()
             redclk()
         # Yellow face
         if cube[1][0][2] == 0 and cube[5][2][0] == 2 and cube[3][2][2] == 4:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][2][0] == 0 and cube[4][2][0] == 2 and cube[2][2][2] == 4:
             yellowclk()
         elif cube[1][2][2] == 0 and cube[2][2][0] == 2 and cube[5][2][2] == 4:
@@ -841,8 +842,8 @@ if __name__ == "__main__":
             yellowclk()
         if cube[1][0][0] == 0 and cube[3][2][0] == 2 and cube[4][2][2] == 4:
             blueclk()
-            yellowAclk()
-            blueAclk()
+            yellow_aclk()
+            blue_aclk()
         ##Bottom Layer##
         if cube[1][2][2] == 4 and cube[5][2][2] == 2 and cube[2][2][0] == 0:
             yellowclk()
@@ -850,20 +851,20 @@ if __name__ == "__main__":
         elif cube[1][2][0] == 4 and cube[2][2][2] == 2 and cube[4][2][0] == 0:
             yellowclk()
         elif cube[1][0][2] == 4 and cube[3][2][2] == 2 and cube[5][2][0] == 0:
-            yellowAclk()
+            yellow_aclk()
         if cube[1][0][0] == 4 and cube[4][2][2] == 2 and cube[3][2][0] == 0:
             redclk()
-            yellowAclk()
-            redAclk()
+            yellow_aclk()
+            red_aclk()
         if cube[1][2][0] == 2 and cube[2][2][2] == 0 and cube[4][2][0] == 4:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][0][0] == 2 and cube[4][2][2] == 0 and cube[3][2][0] == 4:
             yellowclk()
             yellowclk()
         elif cube[1][0][2] == 2 and cube[3][2][2] == 0 and cube[5][2][0] == 4:
             yellowclk()
         if cube[1][2][2] == 2 and cube[5][2][2] == 0 and cube[2][2][0] == 4:
-            blueAclk()
+            blue_aclk()
             yellowclk()
             blueclk()
     print("White Red Blue is solved")
@@ -876,42 +877,42 @@ if __name__ == "__main__":
         if cube[0][0][0] == 0 and cube[5][0][0] == 3 and cube[3][0][2] == 4:
             orangeclk()
             yellowclk()
-            orangeAclk()
+            orange_aclk()
         elif cube[0][2][0] == 0 and cube[2][0][0] == 3 and cube[5][0][2] == 4:
             greenclk()
-            yellowAclk()
-            greenAclk()
+            yellow_aclk()
+            green_aclk()
         # Red face
         if cube[0][2][0] == 4 and cube[2][0][0] == 0 and cube[5][0][2] == 3:
-            redAclk()
-            yellowAclk()
+            red_aclk()
+            yellow_aclk()
             redclk()
         # Blue face
         if cube[0][0][2] == 3 and cube[4][0][2] == 0 and cube[3][0][0] == 4:
-            orangeAclk()
+            orange_aclk()
             yellowclk()
             orangeclk()
         # Orange face
         if cube[0][0][0] == 3 and cube[3][0][2] == 0 and cube[5][0][0] == 4:
             orangeclk()
             yellowclk()
-            orangeAclk()
+            orange_aclk()
         elif cube[0][0][2] == 4 and cube[4][0][2] == 3 and cube[3][0][0] == 0:
             blueclk()
-            yellowAclk()
-            blueAclk()
+            yellow_aclk()
+            blue_aclk()
         # Green face
         if cube[0][0][0] == 4 and cube[3][0][2] == 3 and cube[5][0][0] == 0:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         elif cube[0][2][0] == 3 and cube[5][0][2] == 0 and cube[2][0][0] == 4:
             greenclk()
             yellowclk()
-            greenAclk()
+            green_aclk()
         # Yellow face
         if cube[1][2][2] == 0 and cube[2][2][0] == 4 and cube[5][2][2] == 3:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][2][0] == 0 and cube[4][2][0] == 4 and cube[2][2][2] == 3:
             yellowclk()
             yellowclk()
@@ -919,12 +920,12 @@ if __name__ == "__main__":
             yellowclk()
         if cube[1][0][2] == 0 and cube[5][2][0] == 4 and cube[3][2][2] == 3:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         ##Bottom Layer##
         # Red face 4 -> 3 & 2 -> 4
         if cube[1][2][2] == 3 and cube[5][2][2] == 4 and cube[2][2][0] == 0:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][2][0] == 3 and cube[2][2][2] == 4 and cube[4][2][0] == 0:
             yellowclk()
             yellowclk()
@@ -932,18 +933,18 @@ if __name__ == "__main__":
             yellowclk()
         if cube[1][0][2] == 3 and cube[3][2][2] == 4 and cube[5][2][0] == 0:
             blueclk()
-            yellowAclk()
-            blueAclk()
+            yellow_aclk()
+            blue_aclk()
 
         if cube[1][0][0] == 4 and cube[4][2][2] == 0 and cube[3][2][0] == 3:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][0][2] == 4 and cube[3][2][2] == 0 and cube[5][2][0] == 3:
             yellowclk()
             yellowclk()
         elif cube[1][2][2] == 4 and cube[5][2][2] == 0 and cube[2][2][0] == 3:
             yellowclk()
         if cube[1][2][0] == 4 and cube[2][2][2] == 0 and cube[4][2][0] == 3:
-            orangeAclk()
+            orange_aclk()
             yellowclk()
             orangeclk()
     print("White Blue Orange is solved")
@@ -956,29 +957,29 @@ if __name__ == "__main__":
         if cube[0][2][0] == 0 and cube[2][0][0] == 5 and cube[5][0][2] == 3:
             greenclk()
             yellowclk()
-            greenAclk()
+            green_aclk()
         # Red face
         if cube[0][2][0] == 3 and cube[2][0][0] == 0 and cube[5][0][2] == 5:
-            redAclk()
-            yellowAclk()
+            red_aclk()
+            yellow_aclk()
             redclk()
         # Orange face
         if cube[0][0][0] == 5 and cube[3][0][2] == 0 and cube[5][0][0] == 3:
-            greenAclk()
+            green_aclk()
             yellowclk()
             greenclk()
         # Green face
         if cube[0][0][0] == 3 and cube[3][0][2] == 5 and cube[5][0][0] == 0:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
         elif cube[0][2][0] == 5 and cube[5][0][2] == 0 and cube[2][0][0] == 3:
             greenclk()
             yellowclk()
-            greenAclk()
+            green_aclk()
         # Yellow face
         if cube[1][2][0] == 0 and cube[4][2][0] == 3 and cube[2][2][2] == 5:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][0][0] == 0 and cube[3][2][0] == 3 and cube[4][2][2] == 5:
             yellowclk()
             yellowclk()
@@ -986,12 +987,12 @@ if __name__ == "__main__":
             yellowclk()
         if cube[1][2][2] == 0 and cube[2][2][0] == 3 and cube[5][2][2] == 5:
             greenclk()
-            yellowAclk()
-            greenAclk()
+            yellow_aclk()
+            green_aclk()
         ##Bottom Layer##
 
         if cube[1][2][0] == 5 and cube[2][2][2] == 3 and cube[4][2][0] == 0:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][0][0] == 5 and cube[4][2][2] == 3 and cube[3][2][0] == 0:
             yellowclk()
             yellowclk()
@@ -999,18 +1000,18 @@ if __name__ == "__main__":
             yellowclk()
         if cube[1][2][2] == 5 and cube[5][2][2] == 3 and cube[2][2][0] == 0:
             orangeclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
 
         if cube[1][2][0] == 3 and cube[2][2][2] == 0 and cube[4][2][0] == 5:
             yellowclk()
         elif cube[1][0][2] == 3 and cube[3][2][2] == 0 and cube[5][2][0] == 5:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][2][2] == 3 and cube[5][2][2] == 0 and cube[2][2][0] == 5:
             yellowclk()
             yellowclk()
         if cube[1][0][0] == 3 and cube[4][2][2] == 0 and cube[3][2][0] == 5:
-            greenAclk()
+            green_aclk()
             yellowclk()
             greenclk()
     print("White Orange Green is solved")
@@ -1021,11 +1022,11 @@ if __name__ == "__main__":
         # Red face
         if cube[0][2][0] == 5 and cube[2][0][0] == 0 and cube[5][0][2] == 2:
             greenclk()
-            yellowAclk()
-            greenAclk()
+            yellow_aclk()
+            green_aclk()
         # Green face
         if cube[0][2][0] == 2 and cube[5][0][2] == 0 and cube[2][0][0] == 5:
-            redAclk()
+            red_aclk()
             yellowclk()
             redclk()
         # Yellow face
@@ -1035,9 +1036,9 @@ if __name__ == "__main__":
         elif cube[1][0][2] == 0 and cube[5][2][0] == 5 and cube[3][2][2] == 2:
             yellowclk()
         elif cube[1][2][0] == 0 and cube[4][2][0] == 5 and cube[2][2][2] == 2:
-            yellowAclk()
+            yellow_aclk()
         if cube[1][2][2] == 0 and cube[2][2][0] == 5 and cube[5][2][2] == 2:
-            redAclk()
+            red_aclk()
             yellowclk()
             redclk()
         ##Bottom Layer##
@@ -1049,21 +1050,21 @@ if __name__ == "__main__":
         elif cube[1][2][2] == 2 and cube[5][2][2] == 5 and cube[2][2][0] == 0:
             yellowclk()
         elif cube[1][0][0] == 2 and cube[4][2][2] == 5 and cube[3][2][0] == 0:
-            yellowAclk()
+            yellow_aclk()
         if cube[1][2][0] == 2 and cube[2][2][2] == 5 and cube[4][2][0] == 0:
             greenclk()
-            yellowAclk()
-            greenAclk()
+            yellow_aclk()
+            green_aclk()
 
         if cube[1][2][2] == 5 and cube[5][2][2] == 0 and cube[2][2][0] == 2:
-            yellowAclk()
+            yellow_aclk()
         elif cube[1][2][0] == 5 and cube[2][2][2] == 0 and cube[4][2][0] == 2:
             yellowclk()
             yellowclk()
         elif cube[1][0][0] == 5 and cube[4][2][2] == 0 and cube[3][2][0] == 2:
             yellowclk()
         if cube[1][0][2] == 5 and cube[3][2][2] == 0 and cube[5][2][0] == 2:
-            redAclk()
+            red_aclk()
             yellowclk()
             redclk()
     print("White Green Red is solved")
@@ -1102,7 +1103,7 @@ if __name__ == "__main__":
                 bluel()
             # Search 3rd Layer
             if cube[1][1][2] == 2 and cube[5][2][1] == 4:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][2][1] == 2 and cube[2][2][1] == 4:
                 yellowclk()
                 yellowclk()
@@ -1114,7 +1115,7 @@ if __name__ == "__main__":
             if cube[1][0][1] == 4 and cube[3][2][1] == 2:
                 yellowclk()
             elif cube[1][2][1] == 4 and cube[2][2][1] == 2:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][1][0] == 4 and cube[4][2][1] == 2:
                 yellowclk()
                 yellowclk()
@@ -1142,7 +1143,7 @@ if __name__ == "__main__":
             if cube[1][0][1] == 4 and cube[3][2][1] == 3:
                 yellowclk()
             elif cube[1][2][1] == 4 and cube[2][2][1] == 3:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][1][0] == 4 and cube[4][2][1] == 3:
                 yellowclk()
                 yellowclk()
@@ -1154,7 +1155,7 @@ if __name__ == "__main__":
             elif cube[1][1][2] == 3 and cube[5][2][1] == 4:
                 yellowclk()
             elif cube[1][1][0] == 3 and cube[4][2][1] == 4:
-                yellowAclk()
+                yellow_aclk()
             if cube[1][2][1] == 3 and cube[2][2][1] == 4:
                 bluer()
         print("Blue Orange is solved")
@@ -1182,11 +1183,11 @@ if __name__ == "__main__":
             elif cube[1][1][2] == 3 and cube[5][2][1] == 5:
                 yellowclk()
             elif cube[1][1][0] == 3 and cube[4][2][1] == 5:
-                yellowAclk()
+                yellow_aclk()
             if cube[1][2][1] == 3 and cube[2][2][1] == 5:
                 greenl()
             if cube[1][0][1] == 5 and cube[3][2][1] == 3:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][1][2] == 5 and cube[5][2][1] == 3:
                 yellowclk()
                 yellowclk()
@@ -1214,7 +1215,7 @@ if __name__ == "__main__":
                 redl()
             # Search 3rd Layer
             if cube[1][0][1] == 5 and cube[3][2][1] == 2:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][1][2] == 5 and cube[5][2][1] == 2:
                 yellowclk()
                 yellowclk()
@@ -1223,7 +1224,7 @@ if __name__ == "__main__":
             if cube[1][1][0] == 5 and cube[4][2][1] == 2:
                 redl()
             if cube[1][1][2] == 2 and cube[5][2][1] == 5:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][2][1] == 2 and cube[2][2][1] == 5:
                 yellowclk()
                 yellowclk()
@@ -1251,19 +1252,19 @@ if __name__ == "__main__":
                 redclk()
                 greenclk()
                 yellowclk()
-                greenAclk()
-                yellowAclk()
-                redAclk()
+                green_aclk()
+                yellow_aclk()
+                red_aclk()
             blueclk()
             redclk()
             yellowclk()
-            redAclk()
-            yellowAclk()
-            blueAclk()
+            red_aclk()
+            yellow_aclk()
+            blue_aclk()
         # For L and | yellow corners in yellow face
         elif len(yellowedges) == 2:
             if cube[1][1][2] == 1 and cube[1][0][1] == 1:
-                yellowAclk()
+                yellow_aclk()
             elif cube[1][1][0] == 1 and cube[1][2][1] == 1:
                 yellowclk()
             if (cube[1][0][1] == 1 and cube[1][1][0] == 1) or (
@@ -1272,18 +1273,18 @@ if __name__ == "__main__":
                 redclk()
                 greenclk()
                 yellowclk()
-                greenAclk()
-                yellowAclk()
-                redAclk()
+                green_aclk()
+                yellow_aclk()
+                red_aclk()
             if cube[1][0][1] == 1 and cube[1][2][1] == 1:
-                yellowAclk()
+                yellow_aclk()
             if cube[1][1][0] == 1 and cube[1][1][2] == 1:
                 redclk()
                 greenclk()
                 yellowclk()
-                greenAclk()
-                yellowAclk()
-                redAclk()
+                green_aclk()
+                yellow_aclk()
+                red_aclk()
     print("Yellow Cross is formed")
 
     # Aligning the cross with their respective faces
@@ -1296,13 +1297,13 @@ if __name__ == "__main__":
         greenclk()
         yellowclk()
         yellowclk()
-        greenAclk()
-        yellowAclk()
+        green_aclk()
+        yellow_aclk()
         greenclk()
-        yellowAclk()
-        greenAclk()
+        yellow_aclk()
+        green_aclk()
 
-    side = -3
+    SIDE = -3
     if (
         ycross() == [4, 2, 3, 5]
         or ycross() == [3, 4, 5, 2]
@@ -1314,17 +1315,17 @@ if __name__ == "__main__":
         # 3. green red
         # 4. red blue
         yellowclk()
-        side = 1
+        SIDE = 1
     elif (
         ycross() == [3, 5, 2, 4]
         or ycross() == [5, 2, 4, 3]
         or ycross() == [2, 4, 3, 5]
         or ycross() == [4, 3, 5, 2]
     ):
-        yellowAclk()
-        side = -1
+        yellow_aclk()
+        SIDE = -1
     if (
-        side == 1
+        SIDE == 1
         or ycross() == [5, 3, 4, 2]
         or ycross() == [2, 5, 3, 4]
         or ycross() == [4, 2, 5, 3]
@@ -1333,24 +1334,24 @@ if __name__ == "__main__":
         greenclk()
         yellowclk()
         yellowclk()
-        greenAclk()
-        yellowAclk()
+        green_aclk()
+        yellow_aclk()
         greenclk()
-        yellowAclk()
-        greenAclk()
+        yellow_aclk()
+        green_aclk()
     elif (
-        side == -1
+        SIDE == -1
         or ycross() == [2, 4, 5, 3]
         or ycross() == [4, 3, 2, 5]
         or ycross() == [3, 5, 4, 2]
         or ycross() == [5, 2, 3, 4]
     ):
-        blueAclk()
+        blue_aclk()
         yellowclk()
         yellowclk()
         blueclk()
         yellowclk()
-        blueAclk()
+        blue_aclk()
         yellowclk()
         blueclk()
     print("Yellow Cross is aligned")
@@ -1358,7 +1359,7 @@ if __name__ == "__main__":
     if ycross() == [4, 5, 3, 2]:
         yellowclk()
     elif ycross() == [5, 4, 2, 3]:
-        yellowAclk()
+        yellow_aclk()
     elif ycross() == [3, 2, 5, 4]:
         yellowclk()
         yellowclk()
@@ -1379,11 +1380,11 @@ if __name__ == "__main__":
             or (cube[2][2][2] == 1 and cube[1][2][0] == 2 and cube[4][2][0] == 5)
         ):
             redclk()
-            yellowAclk()
-            orangeAclk()
+            yellow_aclk()
+            orange_aclk()
             yellowclk()
-            redAclk()
-            yellowAclk()
+            red_aclk()
+            yellow_aclk()
             orangeclk()
             yellowclk()
 
@@ -1393,14 +1394,14 @@ if __name__ == "__main__":
             or (cube[4][2][2] == 1 and cube[1][0][0] == 2 and cube[3][2][0] == 5)
             or (cube[4][2][2] == 5 and cube[1][0][0] == 1 and cube[3][2][0] == 2)
         ):
-            redAclk()
+            red_aclk()
             yellowclk()
             orangeclk()
-            yellowAclk()
+            yellow_aclk()
             redclk()
             yellowclk()
-            orangeAclk()
-            yellowAclk()
+            orange_aclk()
+            yellow_aclk()
 
         # Orange Green
         elif (
@@ -1408,27 +1409,27 @@ if __name__ == "__main__":
             or (cube[3][2][2] == 5 and cube[1][0][2] == 1 and cube[5][2][0] == 2)
             or (cube[3][2][2] == 2 and cube[1][0][2] == 5 and cube[5][2][0] == 1)
         ):
-            greenAclk()
+            green_aclk()
             yellowclk()
             blueclk()
-            yellowAclk()
+            yellow_aclk()
             greenclk()
             yellowclk()
-            blueAclk()
-            yellowAclk()
+            blue_aclk()
+            yellow_aclk()
         while not (
             (cube[2][2][2] == 4 and cube[1][2][0] == 2 and cube[4][2][0] == 1)
             or (cube[2][2][2] == 1 and cube[1][2][0] == 4 and cube[4][2][0] == 2)
             or (cube[2][2][2] == 2 and cube[1][2][0] == 1 and cube[4][2][0] == 4)
         ):
-            blueAclk()
+            blue_aclk()
             yellowclk()
             greenclk()
-            yellowAclk()
+            yellow_aclk()
             blueclk()
             yellowclk()
-            greenAclk()
-            yellowAclk()
+            green_aclk()
+            yellow_aclk()
         # corner aligning in right orientation
         # red green orange
 
@@ -1473,17 +1474,17 @@ if __name__ == "__main__":
                 greenclk()
                 yellowclk()
                 yellowclk()
-                greenAclk()
-                yellowAclk()
+                green_aclk()
+                yellow_aclk()
                 greenclk()
-                yellowAclk()
-                greenAclk()
-                blueAclk()
+                yellow_aclk()
+                green_aclk()
+                blue_aclk()
                 yellowclk()
                 yellowclk()
                 blueclk()
                 yellowclk()
-                blueAclk()
+                blue_aclk()
                 yellowclk()
                 blueclk()
             if (
@@ -1514,17 +1515,17 @@ if __name__ == "__main__":
                 greenclk()
                 yellowclk()
                 yellowclk()
-                greenAclk()
-                yellowAclk()
+                green_aclk()
+                yellow_aclk()
                 greenclk()
-                yellowAclk()
-                greenAclk()
-                blueAclk()
+                yellow_aclk()
+                green_aclk()
+                blue_aclk()
                 yellowclk()
                 yellowclk()
                 blueclk()
                 yellowclk()
-                blueAclk()
+                blue_aclk()
                 yellowclk()
                 blueclk()
             print("Red green orange is aligned")
@@ -1546,17 +1547,17 @@ if __name__ == "__main__":
                 orangeclk()
                 yellowclk()
                 yellowclk()
-                orangeAclk()
-                yellowAclk()
+                orange_aclk()
+                yellow_aclk()
                 orangeclk()
-                yellowAclk()
-                orangeAclk()
-                redAclk()
+                yellow_aclk()
+                orange_aclk()
+                red_aclk()
                 yellowclk()
                 yellowclk()
                 redclk()
                 yellowclk()
-                redAclk()
+                red_aclk()
                 yellowclk()
                 redclk()
             if (
@@ -1576,17 +1577,17 @@ if __name__ == "__main__":
                 orangeclk()
                 yellowclk()
                 yellowclk()
-                orangeAclk()
-                yellowAclk()
+                orange_aclk()
+                yellow_aclk()
                 orangeclk()
-                yellowAclk()
-                orangeAclk()
-                redAclk()
+                yellow_aclk()
+                orange_aclk()
+                red_aclk()
                 yellowclk()
                 yellowclk()
                 redclk()
                 yellowclk()
-                redAclk()
+                red_aclk()
                 yellowclk()
                 redclk()
             print("Green orange blue is aligned")
@@ -1601,17 +1602,17 @@ if __name__ == "__main__":
                 blueclk()
                 yellowclk()
                 yellowclk()
-                blueAclk()
-                yellowAclk()
+                blue_aclk()
+                yellow_aclk()
                 blueclk()
-                yellowAclk()
-                blueAclk()
-                greenAclk()
+                yellow_aclk()
+                blue_aclk()
+                green_aclk()
                 yellowclk()
                 yellowclk()
                 greenclk()
                 yellowclk()
-                greenAclk()
+                green_aclk()
                 yellowclk()
                 greenclk()
             if (
@@ -1631,17 +1632,17 @@ if __name__ == "__main__":
                 blueclk()
                 yellowclk()
                 yellowclk()
-                blueAclk()
-                yellowAclk()
+                blue_aclk()
+                yellow_aclk()
                 blueclk()
-                yellowAclk()
-                blueAclk()
-                greenAclk()
+                yellow_aclk()
+                blue_aclk()
+                green_aclk()
                 yellowclk()
                 yellowclk()
                 greenclk()
                 yellowclk()
-                greenAclk()
+                green_aclk()
                 yellowclk()
                 greenclk()
             print("Orange blue red is aligned")
@@ -1674,17 +1675,17 @@ if __name__ == "__main__":
                 redclk()
                 yellowclk()
                 yellowclk()
-                redAclk()
-                yellowAclk()
+                red_aclk()
+                yellow_aclk()
                 redclk()
-                yellowAclk()
-                redAclk()
-                orangeAclk()
+                yellow_aclk()
+                red_aclk()
+                orange_aclk()
                 yellowclk()
                 yellowclk()
                 orangeclk()
                 yellowclk()
-                orangeAclk()
+                orange_aclk()
                 yellowclk()
                 orangeclk()
             if (
@@ -1715,17 +1716,17 @@ if __name__ == "__main__":
                 redclk()
                 yellowclk()
                 yellowclk()
-                redAclk()
-                yellowAclk()
+                red_aclk()
+                yellow_aclk()
                 redclk()
-                yellowAclk()
-                redAclk()
-                orangeAclk()
+                yellow_aclk()
+                red_aclk()
+                orange_aclk()
                 yellowclk()
                 yellowclk()
                 orangeclk()
                 yellowclk()
-                orangeAclk()
+                orange_aclk()
                 yellowclk()
                 orangeclk()
             print("Blue red green is aligned")
@@ -1736,7 +1737,7 @@ if __name__ == "__main__":
     ofinal_moves = final_moves.copy()
     while True:
         fm = []
-        c = 0
+        C = 0
         i = 0
         while i < len(ofinal_moves):
             if (
@@ -1744,7 +1745,7 @@ if __name__ == "__main__":
                 and ofinal_moves[i] == ofinal_moves[i + 1]
                 and ofinal_moves[i + 1] == ofinal_moves[i + 2]
             ):
-                c += 1
+                C += 1
                 if len(str(ofinal_moves[i])) == 1:
                     fm.append(int(ofinal_moves[i] + 10))
                 if len(str(ofinal_moves[i])) == 2:
@@ -1755,13 +1756,13 @@ if __name__ == "__main__":
                 and str(ofinal_moves[i])[-1] == str(ofinal_moves[i + 1])[-1]
                 and ofinal_moves[i] != ofinal_moves[i + 1]
             ):
-                c += 1
+                C += 1
                 i = i + 1
             else:
                 fm.append(ofinal_moves[i])
             i += 1
         ofinal_moves = fm.copy()
-        if c == 0:
+        if C == 0:
             break
 
     print("Optimised Moves -")
